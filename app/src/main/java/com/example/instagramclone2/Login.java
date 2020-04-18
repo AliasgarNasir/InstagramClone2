@@ -1,15 +1,14 @@
 package com.example.instagramclone2;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -88,5 +87,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void transitionToSocialMediaActivity(){
         Intent intent = new Intent(Login.this,SocialMediaActivity.class);
         startActivity(intent);
+        finish();
     }
 }

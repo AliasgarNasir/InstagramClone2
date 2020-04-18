@@ -1,5 +1,6 @@
 package com.example.instagramclone2;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,9 +49,9 @@ public class UsersTab extends Fragment {
 
         parseQuery.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
 
-//        ProgressDialog progressDialog = new ProgressDialog(getContext());
-//        progressDialog.setMessage("Loading Users...");
-//        progressDialog.show();
+        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading Users...");
+        progressDialog.show();
 
         parseQuery.findInBackground(new FindCallback<ParseUser>() {
             @Override
@@ -61,15 +62,16 @@ public class UsersTab extends Fragment {
                             arrayList.add(user.getUsername());
                         }
                         listView.setAdapter(arrayAdapter);
-                        txtLoadingData.animate()
-                                .alpha(0)
-                                .setDuration(1000);
-                        listView.setVisibility(View.VISIBLE);
+//                        txtLoadingData.animate()
+//                                .alpha(0)
+//                                .setDuration(500);
+//                        listView.setVisibility(View.VISIBLE);
                     }
                 }
+                progressDialog.dismiss();
             }
         });
-       // progressDialog.dismiss();
+
         return view;
     }
 }
