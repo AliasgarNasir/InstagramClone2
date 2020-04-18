@@ -2,15 +2,13 @@ package com.example.instagramclone2;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+
+import androidx.fragment.app.Fragment;
 
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -129,14 +127,12 @@ public class ProfileTab extends Fragment {
                             FancyToast.makeText(getContext(), "Info Updated.", FancyToast.LENGTH_SHORT, FancyToast.INFO, false).show();
                         }else {
                             FancyToast.makeText(getContext(), e.getMessage(), FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show();
-
                         }
                     }
                 });
                 progressDialog.dismiss();
             }
         });
-
         return view;
     }
 }
